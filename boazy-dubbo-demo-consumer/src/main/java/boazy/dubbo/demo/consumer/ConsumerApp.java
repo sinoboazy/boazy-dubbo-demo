@@ -33,7 +33,7 @@ public class ConsumerApp {
 			System.out.println(user.getName());
 			System.out.println(user.getEmail());
 			System.out.println(user.getTel());
-		dubboUserService.registerUser(new User("reg.dubboUser", "80808080-8081", "reg.dubboUser@126.com"));
+			dubboUserService.registerUser(new User("reg.dubboUser", "80808080-8081", "reg.dubboUser@126.com"));
 		} catch (Exception e) {
 			System.out.println("dubboUserService invoking error.");
 			e.printStackTrace();
