@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+	<dubbo:annotation package="${spring.dubbo.scan}" />
+
+	<bean id="dubboUserService" class="boazy.dubbo.demo.springboot.provider.DubboUserServiceImpl" />
+	<bean id="restUserService" class="boazy.dubbo.demo.springboot.provider.RestUserServiceImpl" />
+
+	<dubbo:application name="${spring.dubbo.application.name}" />
+
+	<dubbo:registry address="${spring.dubbo.registry.address}" />
+	
+	<dubbo:monitor protocol="registry" />
+
+	<dubbo:protocol id="dubbo" name="dubbo" port="${spring.dubbo.protocol.dubbo.port}" />
+	<dubbo:protocol id="rest" name="rest" port="${spring.dubbo.protocol.rest.port}"
+					extension="com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter" />
+
+	<dubbo:service interface="boazy.dubbo.demo.api.DubboUserService" ref="dubboUserService"
+			protocol="dubbo" owner="boazy-springboot" token="true"
+	/>
+	<dubbo:service interface="boazy.dubbo.demo.api.RestUserService" ref="restUserService"
+				   protocol="rest" owner="boazy-springboot"
+	/>
+
+</beans>

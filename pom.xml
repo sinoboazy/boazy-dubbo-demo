@@ -20,6 +20,8 @@
         <module>boazy-dubbo-demo-api</module>
         <module>boazy-dubbo-demo-provider</module>
         <module>boazy-dubbo-demo-consumer</module>
+        <module>boazy-dubbo-springboot-provider</module>
+        <module>boazy-dubbo-springboot-consumer</module>
     </modules>
 
     <dependencyManagement>
