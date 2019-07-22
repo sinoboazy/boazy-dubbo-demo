@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @Company boazy
- * @author boazy
+ * @author boazy@126.com
  * @Date Jul 10, 2018
  *
  */

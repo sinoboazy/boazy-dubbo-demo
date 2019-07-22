@@ -2,9 +2,8 @@ package boazy.dubbo.demo.api;
 
 /**
  *
- * @Company boazy
- * @author boazy
- * @Date Jul 10, 2018
+ * @author boazy@126.com
+ * @date Jul 10, 2018
  *
  */
 public interface UserService {
