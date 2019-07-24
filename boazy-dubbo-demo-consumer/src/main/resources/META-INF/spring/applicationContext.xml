@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:annotation package="boazy.dubbo.demo"/>
+
+    <dubbo:application name="boazy-dubbo-demo-consumer">
+        <dubbo:parameter key="qos.port" value="33333"/>
+    </dubbo:application>
+
+    <dubbo:registry address="zookeeper://10.198.0.21:2181?backup=10.198.0.21:2182,10.198.0.21:2183"/>
+
+    <dubbo:reference id="dubboUserService" interface="boazy.dubbo.demo.api.DubboUserService" protocol="dubbo"/>
+    <dubbo:reference id="hessianUserService" interface="boazy.dubbo.demo.api.HessianUserService" protocol="hessian"/>
+    <dubbo:reference id="rmiUserService" interface="boazy.dubbo.demo.api.RmiUserService" protocol="rmi"/>
+    <dubbo:reference id="restUserService" interface="boazy.dubbo.demo.api.RestUserService" protocol="rest"/>
+
+</beans>
