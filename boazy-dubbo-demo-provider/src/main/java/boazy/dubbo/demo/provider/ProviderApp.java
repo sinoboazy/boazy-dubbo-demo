@@ -1,13 +1,10 @@
 package boazy.dubbo.demo.provider;
 
-import com.alibaba.dubbo.container.Main;
+import org.apache.dubbo.container.Main;
 
 /**
- *
- * @Company boazy
- * @author boazy
- * @Date Jul 10, 2018
- *
+ * @author boazy@126.com
+ * @date Jul 10, 2018
  */
 public class ProviderApp {
 

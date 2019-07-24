@@ -1,43 +1,36 @@
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-    xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
-    xmlns:task="http://www.springframework.org/schema/task" 
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-       http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-4.3.xsd
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-       http://www.springframework.org/schema/cache 
-       http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
-       http://www.springframework.org/schema/task 
-       http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
-    <!-- 自动扫描包 ,将带有注解的类 纳入spring容器管理 -->
-    <context:component-scan base-package="boazy.dubbo.demo"/>
-    
-    <!-- 定义 Autowired  自动注入 bean -->
-    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
-    
-    <!--开启注解处理器-->
-    <context:annotation-config/>
-    
-    <!-- task任务扫描注解 -->  
-    <task:annotation-driven/>
+    <dubbo:annotation package="boazy.dubbo.demo"/>
 
-    <!-- 配置使Spring采用CGLIB代理 -->
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
-    
-    <bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath*:config/*.properties</value>
-			</list>
-		</property>
-	</bean>
-    
+    <bean id="dubboUserService" class="boazy.dubbo.demo.provider.DubboUserServiceImpl"/>
+    <bean id="hessianUserService" class="boazy.dubbo.demo.provider.HessianUserServiceImpl"/>
+    <bean id="restUserService" class="boazy.dubbo.demo.provider.RestUserServiceImpl"/>
+    <bean id="rmiUserService" class="boazy.dubbo.demo.provider.RmiUserServiceImpl"/>
+
+    <dubbo:application name="boazy-dubbo-demo-provider"/>
+
+    <dubbo:registry address="zookeeper://10.198.0.21:2181?backup=10.198.0.21:2182,10.198.0.21:2183"/>
+
+    <dubbo:protocol id="dubbo" name="dubbo" port="8081"/>
+    <dubbo:protocol id="hessian" name="hessian" port="8082"/>
+    <dubbo:protocol id="rest" name="rest" port="8083" server="jetty"/>
+    <dubbo:protocol id="rmi" name="rmi" port="8084"/>
+
+    <dubbo:service interface="boazy.dubbo.demo.api.DubboUserService" ref="dubboUserService"
+                   protocol="dubbo" owner="boazy" token="true"
+    />
+    <dubbo:service interface="boazy.dubbo.demo.api.HessianUserService" ref="hessianUserService"
+                   protocol="hessian" owner="boazy"
+    />
+    <dubbo:service interface="boazy.dubbo.demo.api.RmiUserService" ref="rmiUserService"
+                   protocol="rmi" owner="boazy"
+    />
+    <dubbo:service interface="boazy.dubbo.demo.api.RestUserService" ref="restUserService"
+                   protocol="rest" owner="boazy"
+    />
+
 </beans>
