@@ -12,7 +12,7 @@
     <artifactId>boazy-dubbo-demo-consumer</artifactId>
     <packaging>jar</packaging>
 
-    <name>boazy-dubbo-demo-consumer Maven Webapp</name>
+    <name>boazy-dubbo-demo-consumer</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -49,26 +49,22 @@
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
         </dependency>
+        <!-- dubbo 2.7.3 rest客户端用 resteasy-client 4.X版本会报
+            java.lang.ClassNotFoundException: org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine
+            正确请使用 3.8.1.Final 版本
+         -->
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.8.1.Final</version>
         </dependency>
 
         <dependency>
             <groupId>com.caucho</groupId>
             <artifactId>hessian</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
         </dependency>
 
         <dependency>

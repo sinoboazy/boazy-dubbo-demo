@@ -12,7 +12,7 @@
     <artifactId>boazy-dubbo-demo-provider</artifactId>
     <packaging>jar</packaging>
 
-    <name>boazy-dubbo-demo-provider Maven Webapp</name>
+    <name>boazy-dubbo-demo-provider</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -49,6 +49,17 @@
         </dependency>
 
         <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+        </dependency>
+        <!-- 这个包放到 restaeasy-jaxrs 上面时应用启动会报异常 -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.8.1.Final</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
         </dependency>
@@ -60,15 +71,6 @@
         <dependency>
             <groupId>com.caucho</groupId>
             <artifactId>hessian</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
         </dependency>
 
         <dependency>

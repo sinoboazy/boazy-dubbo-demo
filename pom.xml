@@ -13,15 +13,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <project.spring.version>5.1.8.RELEASE</project.spring.version>
     </properties>
 
     <modules>
         <module>boazy-dubbo-demo-api</module>
         <module>boazy-dubbo-demo-provider</module>
         <module>boazy-dubbo-demo-consumer</module>
-        <module>boazy-dubbo-springboot-provider</module>
-        <module>boazy-dubbo-springboot-consumer</module>
+        <!--<module>boazy-dubbo-springboot-provider</module>
+        <module>boazy-dubbo-springboot-consumer</module>-->
     </modules>
 
     <dependencyManagement>
@@ -35,7 +34,7 @@
             <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
-                <version>2.0.1</version>
+                <version>2.1.1</version>
             </dependency>
 
             <dependency>
@@ -56,11 +55,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>4.5.9</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxrs</artifactId>
                 <version>3.8.1.Final</version>
@@ -68,7 +62,7 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>4.1.1.Final</version>
+                <version>3.8.1.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
@@ -80,17 +74,15 @@
                 <artifactId>jetty-servlet</artifactId>
                 <version>9.4.19.v20190610</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.58</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.caucho</groupId>
                 <artifactId>hessian</artifactId>
                 <version>4.0.62</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.58</version>
             </dependency>
 
             <dependency>
