@@ -1,0 +1,5 @@
+boazy\dubbo\demo\provider\ProviderApp.class
+boazy\dubbo\demo\provider\RmiUserServiceImpl.class
+boazy\dubbo\demo\provider\DubboUserServiceImpl.class
+boazy\dubbo\demo\provider\HessianUserServiceImpl.class
+boazy\dubbo\demo\provider\RestUserServiceImpl.class

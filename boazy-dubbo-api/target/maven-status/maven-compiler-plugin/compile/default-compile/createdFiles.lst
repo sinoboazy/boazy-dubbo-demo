@@ -1,0 +1,6 @@
+boazy\dubbo\demo\api\RestUserService.class
+boazy\dubbo\demo\api\DubboUserService.class
+boazy\dubbo\demo\api\User.class
+boazy\dubbo\demo\api\HessianUserService.class
+boazy\dubbo\demo\api\UserService.class
+boazy\dubbo\demo\api\RmiUserService.class

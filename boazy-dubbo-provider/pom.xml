@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boazy-dubbo-demo-consumer</artifactId>
+    <artifactId>boazy-dubbo-demo-provider</artifactId>
     <packaging>jar</packaging>
 
-    <name>boazy-dubbo-demo-consumer</name>
+    <name>boazy-dubbo-provider</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -25,7 +25,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>boazy-dubbo-demo-api</artifactId>
+            <artifactId>boazy-dubbo-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -52,14 +52,21 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
         </dependency>
-        <!-- dubbo 2.7.3 rest客户端用 resteasy-client 4.X版本会报
-            java.lang.ClassNotFoundException: org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine
-            正确请使用 3.8.1.Final 版本
-         -->
+        <!-- 这个包放到 restaeasy-jaxrs 上面时应用启动会报异常 -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
+            <!-- 为什么这里不版本号，是4.0.0.Final呢？ -->
             <version>3.8.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
         </dependency>
 
         <dependency>
@@ -79,7 +86,7 @@
     </dependencies>
 
     <build>
-        <finalName>boazy-dubbo-demo-consumer</finalName>
+        <finalName>boazy-dubbo-demo-provider</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
