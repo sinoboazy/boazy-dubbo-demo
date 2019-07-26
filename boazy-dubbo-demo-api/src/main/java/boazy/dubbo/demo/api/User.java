@@ -3,10 +3,8 @@ package boazy.dubbo.demo.api;
 import java.io.Serializable;
 
 /**
- *
  * @author boazy@126.com
  * @Date Jul 10, 2018
- *
  */
 public class User implements Serializable {
     private static final long serialVersionUID = -2126520241783756715L;
