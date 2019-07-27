@@ -19,8 +19,8 @@
         <module>boazy-dubbo-api</module>
         <module>boazy-dubbo-provider</module>
         <module>boazy-dubbo-consumer</module>
-        <!--<module>boazy-dubbo-springboot-provider</module>
-        <module>boazy-dubbo-springboot-consumer</module>-->
+        <module>boazy-dubbo-springboot-provider</module>
+        <!--<module>boazy-dubbo-springboot-consumer</module>-->
     </modules>
 
     <dependencyManagement>
@@ -31,6 +31,15 @@
                 <version>4.12</version>
                 <scope>test</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.1.6.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
@@ -41,6 +50,11 @@
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
                 <version>2.7.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>2.7.1</version>
             </dependency>
 
             <dependency>

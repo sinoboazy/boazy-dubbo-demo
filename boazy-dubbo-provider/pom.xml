@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boazy-dubbo-demo-provider</artifactId>
+    <artifactId>boazy-dubbo-provider</artifactId>
     <packaging>jar</packaging>
 
     <name>boazy-dubbo-provider</name>
