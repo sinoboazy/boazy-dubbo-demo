@@ -20,7 +20,7 @@
         <module>boazy-dubbo-provider</module>
         <module>boazy-dubbo-consumer</module>
         <module>boazy-dubbo-springboot-provider</module>
-        <!--<module>boazy-dubbo-springboot-consumer</module>-->
+        <module>boazy-dubbo-springboot-consumer</module>
     </modules>
 
     <dependencyManagement>
